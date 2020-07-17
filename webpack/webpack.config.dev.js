@@ -30,7 +30,12 @@ module.exports = merge(common, {
                 }
             },
             {
-                test: /\.js$/,
+                test: /\.(js|ts)$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
+              },
+            {
+                test: /\.(js|ts)$/,
                 include: path.resolve(__dirname, '../src'),
                 loader: 'babel-loader'
             },
