@@ -21,13 +21,13 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|ts)$/,
                 include: path.resolve(__dirname, '../src'),
                 enforce: 'pre',
                 loader: 'eslint-loader',
                 options: {
-                    emitWarning: true
-                }
+                    emitWarning: true,
+                },
             },
             {
                 test: /\.(js|ts)$/,
@@ -44,5 +44,6 @@ module.exports = merge(common, {
                 use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
             }
         ]
-    }
+    },
+    stats: "minimal"
 });
