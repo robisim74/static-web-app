@@ -3,23 +3,19 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const common = require('./webpack.common.js');
-const package = require("../package.json");
 
-const VERSION = package.version;
-const FILENAME = `[name].${VERSION}`
+const FILENAME = '[name].[chunkhash:8]';
 
 module.exports = merge(common, {
     mode: 'production',
-    devtool: 'source-map',
+    devtool: false,
     output: {
         filename: `js/${FILENAME}.js`,
-        chunkFilename: `js/${FILENAME}.chunk.js`
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
         new MiniCssExtractPlugin({
             filename: `css/${FILENAME}.css`
         })

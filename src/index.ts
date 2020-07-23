@@ -1,6 +1,6 @@
 import './styles/index.scss';
 
-console.log('webpack starterkit');
+console.log('site-starter: ' + process.env.NODE_ENV);
 
 const materials = [
     'Hydrogen',

@@ -16,11 +16,13 @@ npm start
 
 ```
 npm run build
+
+npx http-server ./build
 ```
 
 ### Features:
 
+* Babel & webpack
 * ES6 & TypeScript
 * CSS & SASS
-* Minification
-* Linting
+* ESLint

@@ -12,10 +12,6 @@ module.exports = {
         filename: 'js/[name].js',
     },
     optimization: {
-        splitChunks: {
-            chunks: 'all',
-            name: false,
-        },
         noEmitOnErrors: true
     },
     plugins: [
@@ -26,8 +22,8 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: [ '.ts', '.js' ],
-      },
+        extensions: ['.ts', '.js'],
+    },
     module: {
         rules: [
             {
