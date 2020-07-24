@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.prod.js --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "cross-env BROWSERSLIST_ENV=development webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "build": "cross-env BROWSERSLIST_ENV=production webpack --config webpack/webpack.config.prod.js --colors"
   },
   "repository": {
     "type": "git",
