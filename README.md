@@ -26,3 +26,4 @@ npx http-server ./build
 * ES6 & TypeScript
 * CSS & SASS
 * ESLint
+* Critical

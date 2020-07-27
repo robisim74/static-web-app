@@ -1,6 +1,19 @@
+/* critical */
 $body-color: slateblue;
 
 body {
   color: $body-color;
   font-family: sans-serif;
+}
+
+/* uncritical */
+.alert {
+  color: red;
+}
+
+/* dimensions */
+@media (min-width: 576px) {
+  body {
+    background-color: lavender;
+  }
 }
