@@ -1,4 +1,5 @@
 # Site Starter
+> Start a frontend site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading
 
 ### Installation
 
@@ -6,13 +7,13 @@
 npm install
 ```
 
-### Start Dev Server
+### Start DevServer with Hot Module Replacement
 
 ```
 npm start
 ```
 
-### Build Prod Version
+### Build
 
 ```
 npm run build
@@ -27,3 +28,4 @@ npx http-server ./build
 * CSS & SASS
 * ESLint
 * Critical
+* Differential loading

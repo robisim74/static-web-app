@@ -1,8 +1,7 @@
 /* critical */
-$body-color: slateblue;
-
 body {
-  color: $body-color;
+  color: black;
+  background-color: white;
   font-family: sans-serif;
 }
 
@@ -14,6 +13,7 @@ body {
 /* dimensions */
 @media (min-width: 576px) {
   body {
-    background-color: lavender;
+    color: white;
+    background-color: black;
   }
 }
