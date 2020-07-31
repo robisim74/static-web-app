@@ -24,18 +24,33 @@ const modernConfig = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: `js/${MODERN_FILENAME}.js`,
+        chunkFilename: `js/${MODERN_FILENAME}.js`
     },
     optimization: {
-        noEmitOnErrors: true
+        noEmitOnErrors: true,
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     resolve: {
         extensions: ['.ts', '.js'],
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'public'), to: 'public' }] }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'assets'),
+                    globOptions: {
+                        dot: false
+                    },
+                    to: 'assets'
+                }
+            ]
+        }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html')
+            template: path.resolve(__dirname, 'src/index.html'),
+            favicon: path.resolve(__dirname, 'src/favicon.ico')
         }),
         new ScriptExtHtmlWebpackPlugin({
             module: MODERN_SUFFIX
@@ -52,7 +67,7 @@ const modernConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        envName: "modern" // Points to env.modern in babel.config.js
+                        envName: 'modern' // Points to env.modern in babel.config.js
                     }
                 }
             },
@@ -67,7 +82,9 @@ const modernConfig = {
         ]
     },
     stats: {
-        colors: true
+        colors: true,
+        modules: false,
+        entrypoints: false
     }
 };
 
@@ -79,9 +96,13 @@ const legacyConfig = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: `js/${LEGACY_FILENAME}.js`,
+        chunkFilename: `js/${LEGACY_FILENAME}.js`
     },
     optimization: {
-        noEmitOnErrors: true
+        noEmitOnErrors: true,
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     resolve: {
         extensions: ['.ts', '.js'],
@@ -108,14 +129,16 @@ const legacyConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        envName: "legacy" // Points to env.legacy in babel.config.js
+                        envName: 'legacy' // Points to env.legacy in babel.config.js
                     }
                 }
             }
         ]
     },
     stats: {
-        colors: true
+        colors: true,
+        modules: false,
+        entrypoints: false
     }
 };
 

@@ -1,8 +1,15 @@
+$dark-color: #152028;
+
 /* critical */
 body {
-  color: black;
-  background-color: white;
+  color: $dark-color;
+  background-color: #ffffff;
   font-family: sans-serif;
+
+  .logo {
+    height: 96px;
+    width: 96px;
+  }
 }
 
 /* uncritical */
@@ -13,7 +20,7 @@ body {
 /* dimensions */
 @media (min-width: 576px) {
   body {
-    color: white;
-    background-color: black;
+    color: #ffffff;
+    background-color: $dark-color;
   }
 }

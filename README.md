@@ -1,5 +1,5 @@
 # Site Starter
-> Start a frontend site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading
+> Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading. SEO & performance friendly
 
 ### Installation
 

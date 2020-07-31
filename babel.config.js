@@ -4,31 +4,35 @@ module.exports = {
         modern: {
             presets: [
                 [
-                    "@babel/preset-env",
+                    '@babel/preset-env',
                     {
                         targets: {
                             esmodules: true
                         }
                     },
-                    "@babel/typescript"
+                    '@babel/typescript'
                 ]
             ],
-            plugins: []
+            plugins: [
+                '@babel/plugin-syntax-dynamic-import'
+            ]
         },
         // Config to generate bundles for legacy browsers
         legacy: {
             presets: [
                 [
-                    "@babel/preset-env",
+                    '@babel/preset-env',
                     {
-                        useBuiltIns: "usage",
-                        corejs: "3.0.0",
-                        targets: "defaults"
+                        useBuiltIns: 'usage',
+                        corejs: '3.0.0',
+                        targets: 'defaults'
                     },
-                    "@babel/typescript"
+                    '@babel/typescript'
                 ]
             ],
-            plugins: []
+            plugins: [
+                '@babel/plugin-syntax-dynamic-import'
+            ]
         },
     }
 };

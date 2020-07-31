@@ -1,6 +1,5 @@
 const path = require('path');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -25,11 +24,11 @@ module.exports = {
         hot: true
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'public'), to: 'public' }] }),
+        new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'assets'), to: 'assets' }] }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html')
-        }),
+            template: path.resolve(__dirname, 'src/index.html'),
+            favicon: path.resolve(__dirname, 'src/favicon.ico')
+        })
     ],
     module: {
         rules: [
@@ -53,17 +52,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [
-                            [
-                                "@babel/preset-env",
-                                {
-                                    targets: {
-                                        esmodules: true
-                                    }
-                                },
-                                "@babel/typescript"
-                            ]
-                        ]
+                        envName: 'modern' // Points to env.modern in babel.config.js
                     }
                 }
             },
@@ -77,5 +66,5 @@ module.exports = {
             }
         ]
     },
-    stats: "minimal"
+    stats: 'minimal'
 };
