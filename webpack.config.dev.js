@@ -2,16 +2,16 @@ const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const entries = require('./entries');
-const { getModernEntry, MultipleModernHtmlWebpackPlugin } = require('./scripts/utils');
+const config = require('./config');
+const { getModernEntry, MultipleModernHtmlWebpackPlugin, getAssets } = require('./scripts/utils');
 
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
     context: path.resolve(__dirname, 'src'),
-    entry: getModernEntry(entries),
+    entry: getModernEntry(config.entries),
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, config.buildDir),
         filename: 'js/[name].js',
     },
     optimization: {
@@ -24,8 +24,12 @@ module.exports = {
         hot: true
     },
     plugins: [
-        new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'assets'), to: 'assets' }] }),
-        ...MultipleModernHtmlWebpackPlugin(entries)
+        new CopyWebpackPlugin({
+            patterns: [
+                ...getAssets(config.assets)
+            ]
+        }),
+        ...MultipleModernHtmlWebpackPlugin(config.entries)
     ],
     module: {
         rules: [

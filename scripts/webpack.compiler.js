@@ -19,6 +19,6 @@ const webpackCompiler = async (webpackConfig) => {
             resolve();
         })
     });
-}
+};
 
 module.exports = webpackCompiler;

@@ -2,11 +2,13 @@ const chalk = require('chalk');
 const log = console.log;
 
 const critical = require('critical');
+const { createWriteStream } = require('fs');
+const { SitemapStream } = require('sitemap');
 
 const webpackCompiler = require('./scripts/webpack.compiler');
 const { modernConfig, legacyConfig } = require('./webpack.config.prod');
-const entries = require('./entries');
-const { getHtmlSourceFiles } = require('./scripts/utils');
+const config = require('./config');
+const { getHtmlSourceFiles, getPaths } = require('./scripts/utils');
 
 async function build() {
     log(chalk.blue('Start building...'));
@@ -18,14 +20,15 @@ async function build() {
     await webpackCompiler(legacyConfig);
 
     // Runs critical
+    // https://github.com/addyosmani/critical
     log(chalk.blue('\nGenerate critical css'));
-    for (const value of getHtmlSourceFiles(entries)) {
+    for (const source of getHtmlSourceFiles(config.entries)) {
         critical.generate({
             inline: true,
-            base: 'build/',
-            src: value,
+            base: config.buildDir,
+            src: source,
             target: {
-                html: value
+                html: source
             },
             minify: true,
             extract: true,
@@ -39,6 +42,22 @@ async function build() {
             }]
         });
     }
+
+    // Run sitemap.js
+    // https://github.com/ekalinin/sitemap.js
+    log(chalk.blue('Generate sitemap'));
+    const sitemap = new SitemapStream({
+        hostname: config.hostname
+    });
+
+    const writeStream = createWriteStream(`${config.buildDir}/sitemap.xml`);
+    sitemap.pipe(writeStream);
+
+    for (const path of getPaths(config.entries)) {
+        sitemap.write(path);
+    }
+
+    sitemap.end();
 
     log(chalk.blue('End building'));
 }

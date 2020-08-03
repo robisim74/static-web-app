@@ -30,3 +30,4 @@ npm run serve
 * Critical
 * Differential loading
 * Multi page
+* Sitemap

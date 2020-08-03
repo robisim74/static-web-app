@@ -5,8 +5,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const entries = require('./entries');
-const { getModernEntry, getLegacyEntry, MultipleModernHtmlWebpackPlugin, MultipleLegacyHtmlWebpackPlugin } = require('./scripts/utils');
+const config = require('./config');
+const {
+    getModernEntry,
+    getLegacyEntry,
+    MultipleModernHtmlWebpackPlugin,
+    MultipleLegacyHtmlWebpackPlugin,
+    getAssets
+} = require('./scripts/utils');
 
 // Naming
 const MODERN_SUFFIX = 'es2015';
@@ -20,9 +26,9 @@ const LEGACY_FILENAME = `[name]-${LEGACY_SUFFIX}.[hash]`;
 const modernConfig = {
     mode: 'production',
     context: path.resolve(__dirname, 'src'),
-    entry: getModernEntry(entries),
+    entry: getModernEntry(config.entries),
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, config.buildDir),
         filename: `js/${MODERN_FILENAME}.js`,
         chunkFilename: `js/${MODERN_FILENAME}.js`
     },
@@ -39,16 +45,10 @@ const modernConfig = {
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-                {
-                    from: path.resolve(__dirname, 'assets'),
-                    globOptions: {
-                        dot: false
-                    },
-                    to: 'assets'
-                }
+                ...getAssets(config.assets)
             ]
         }),
-        ...MultipleModernHtmlWebpackPlugin(entries),
+        ...MultipleModernHtmlWebpackPlugin(config.entries),
         new ScriptExtHtmlWebpackPlugin({
             module: MODERN_SUFFIX
         }),
@@ -88,9 +88,9 @@ const modernConfig = {
 const legacyConfig = {
     mode: 'production',
     context: path.resolve(__dirname, 'src'),
-    entry: getLegacyEntry(entries),
+    entry: getLegacyEntry(config.entries),
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, config.buildDir),
         filename: `js/${LEGACY_FILENAME}.js`,
         chunkFilename: `js/${LEGACY_FILENAME}.js`
     },
@@ -104,7 +104,7 @@ const legacyConfig = {
         extensions: ['.ts', '.js'],
     },
     plugins: [
-        ...MultipleLegacyHtmlWebpackPlugin(entries),
+        ...MultipleLegacyHtmlWebpackPlugin(config.entries),
         new ScriptExtHtmlWebpackPlugin({
             custom: [
                 {
