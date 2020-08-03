@@ -1,11 +1,12 @@
-const webpack = require('webpack');
 const path = require('path');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const entries = require('./entries');
+const { getModernEntry, getLegacyEntry, MultipleModernHtmlWebpackPlugin, MultipleLegacyHtmlWebpackPlugin } = require('./scripts/utils');
 
 // Naming
 const MODERN_SUFFIX = 'es2015';
@@ -18,9 +19,8 @@ const LEGACY_FILENAME = `[name]-${LEGACY_SUFFIX}.[hash]`;
 // Configs
 const modernConfig = {
     mode: 'production',
-    entry: {
-        bundle: [path.resolve(__dirname, 'src/index.ts'), path.resolve(__dirname, 'src/index.scss')]
-    },
+    context: path.resolve(__dirname, 'src'),
+    entry: getModernEntry(entries),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: `js/${MODERN_FILENAME}.js`,
@@ -48,10 +48,7 @@ const modernConfig = {
                 }
             ]
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html'),
-            favicon: path.resolve(__dirname, 'src/favicon.ico')
-        }),
+        ...MultipleModernHtmlWebpackPlugin(entries),
         new ScriptExtHtmlWebpackPlugin({
             module: MODERN_SUFFIX
         }),
@@ -90,9 +87,8 @@ const modernConfig = {
 
 const legacyConfig = {
     mode: 'production',
-    entry: {
-        bundle: path.resolve(__dirname, 'src/index.ts')
-    },
+    context: path.resolve(__dirname, 'src'),
+    entry: getLegacyEntry(entries),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: `js/${LEGACY_FILENAME}.js`,
@@ -108,9 +104,7 @@ const legacyConfig = {
         extensions: ['.ts', '.js'],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'build/index.html') // Points to the result of prod.modern
-        }),
+        ...MultipleLegacyHtmlWebpackPlugin(entries),
         new ScriptExtHtmlWebpackPlugin({
             custom: [
                 {

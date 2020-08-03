@@ -1,14 +1,15 @@
 const path = require('path');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const entries = require('./entries');
+const { getModernEntry, MultipleModernHtmlWebpackPlugin } = require('./scripts/utils');
 
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
-    entry: {
-        bundle: [path.resolve(__dirname, 'src/index.ts'), path.resolve(__dirname, 'src/index.scss')]
-    },
+    context: path.resolve(__dirname, 'src'),
+    entry: getModernEntry(entries),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'js/[name].js',
@@ -20,15 +21,11 @@ module.exports = {
         extensions: ['.ts', '.js'],
     },
     devServer: {
-        inline: true,
         hot: true
     },
     plugins: [
         new CopyWebpackPlugin({ patterns: [{ from: path.resolve(__dirname, 'assets'), to: 'assets' }] }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html'),
-            favicon: path.resolve(__dirname, 'src/favicon.ico')
-        })
+        ...MultipleModernHtmlWebpackPlugin(entries)
     ],
     module: {
         rules: [

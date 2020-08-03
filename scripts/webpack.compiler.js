@@ -1,7 +1,9 @@
 const webpack = require('webpack');
 
-/* Wrapper for webpack compiler */
-async function webpackCompiler(webpackConfig) {
+/**
+ * Wrapper for webpack compiler
+ */
+const webpackCompiler = async (webpackConfig) => {
 
     return new Promise((resolve, reject) => {
 

@@ -7,7 +7,7 @@
 npm install
 ```
 
-### Start DevServer with Hot Module Replacement
+### Start DevServer
 
 ```
 npm start
@@ -18,7 +18,7 @@ npm start
 ```
 npm run build
 
-npx http-server ./build
+npm run serve
 ```
 
 ### Features:
@@ -29,3 +29,4 @@ npx http-server ./build
 * ESLint
 * Critical
 * Differential loading
+* Multi page
