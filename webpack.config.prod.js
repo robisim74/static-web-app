@@ -72,7 +72,13 @@ const modernConfig = {
                 test: /\.s?css/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 } // @import syntax
+                    },
+                    {
+                        loader: 'postcss-loader' // Autoprefixer
+                    },
                     'sass-loader'
                 ]
             }

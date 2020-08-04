@@ -24,8 +24,7 @@ module.exports = {
                     '@babel/preset-env',
                     {
                         useBuiltIns: 'usage',
-                        corejs: '3.0.0',
-                        targets: 'defaults'
+                        corejs: '3.0.0'
                     },
                     '@babel/typescript'
                 ]

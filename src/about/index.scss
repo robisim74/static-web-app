@@ -1,16 +1,1 @@
-$dark-color: #152028;
-
-/* critical */
-body {
-  color: $dark-color;
-  background-color: #ffffff;
-  font-family: sans-serif;
-}
-
-/* dimensions */
-@media (min-width: 576px) {
-  body {
-    color: #ffffff;
-    background-color: $dark-color;
-  }
-}
+@import '../styles.scss';

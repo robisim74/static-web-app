@@ -25,9 +25,10 @@ npm run serve
 
 * Babel & webpack
 * ES6 & TypeScript
-* CSS & SASS
+* CSS & SASS & Autoprefixer
 * ESLint
 * Critical
 * Differential loading
 * Multi page
 * Sitemap
+* e2e testing with Cypress

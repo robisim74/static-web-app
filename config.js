@@ -16,6 +16,9 @@ const config = {
     assets: [
         'assets',
     ],
+    /**
+     * For sitemap URLs
+     */
     hostname: 'https://example.com',
 };
 
