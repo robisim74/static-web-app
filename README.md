@@ -13,6 +13,13 @@ npm install
 npm start
 ```
 
+### Test
+Open another terminal while _DevServer_ is running:
+
+```
+npm test
+```
+
 ### Build
 
 ```
