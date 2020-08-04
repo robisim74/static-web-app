@@ -1,6 +1,6 @@
 {
   "name": "site-starter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
@@ -11,10 +11,24 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/robisim74/site-starter"
   },
-  "keywords": [],
-  "author": "",
+  "bugs": {
+    "url": "https://github.com/robisim74/site-starter/issues"
+  },
+  "homepage": "https://github.com/robisim74/site-starter",
+  "keywords": [
+    "webpack",
+    "babel",
+    "es6",
+    "typescript",
+    "critical css",
+    "differential loading",
+    "multi page",
+    "site",
+    "starter"
+  ],
+  "author": "Roberto Simonetti",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.5",
