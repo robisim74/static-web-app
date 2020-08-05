@@ -15,6 +15,7 @@ const config = {
      */
     assets: [
         'assets',
+        '404.html'
     ],
     /**
      * For sitemap URLs

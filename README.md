@@ -26,6 +26,7 @@
 Download the code & configure the project in `config.js` file.
 
 ### Installation
+For development, _Node.js_ 12 or higher is required.
 
 ```Shell
 npm install
