@@ -2,6 +2,7 @@
 ![Node.js CI](https://github.com/robisim74/site-starter/workflows/Node.js%20CI/badge.svg)
 > Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading. SEO & performance friendly
 
+[Live example]( https://robisim74.github.io/site-starter/)
 
 ## Features
 
@@ -48,8 +49,6 @@ npm test
 ### Build
 ```Shell
 npm run build
-
-npm run serve
 ```
 
 ![build](https://user-images.githubusercontent.com/14012361/89346127-d2efc480-d6a8-11ea-938e-92c155d50735.png)

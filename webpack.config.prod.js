@@ -48,7 +48,7 @@ const modernConfig = {
                 ...getAssets(config.assets)
             ]
         }),
-        ...MultipleModernHtmlWebpackPlugin(config.entries),
+        ...MultipleModernHtmlWebpackPlugin(config.entries, config.baseHref),
         new ScriptExtHtmlWebpackPlugin({
             module: MODERN_SUFFIX
         }),

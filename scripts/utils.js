@@ -20,13 +20,14 @@ const getLegacyEntry = (entries) => {
     return entry;
 };
 
-const MultipleModernHtmlWebpackPlugin = (entries) => {
+const MultipleModernHtmlWebpackPlugin = (entries, baseHref = '/') => {
     return entries.map(value =>
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, `../${config.buildDir}/${value.template}`),
             template: path.resolve(__dirname, `../src/${value.template}`),
             chunks: [value.name],
-            favicon: path.resolve(__dirname, '../src/favicon.ico')
+            favicon: path.resolve(__dirname, '../src/favicon.ico'),
+            base: baseHref
         })
     );
 };

@@ -5,7 +5,6 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "build": "node build.js",
-    "serve": "npx http-server ./build",
     "test": "cypress open",
     "test:ci": "cypress run"
   },
