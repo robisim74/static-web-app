@@ -8,7 +8,7 @@ const config = {
      */
     entries: [
         { name: 'home', template: './index.html', module: './index.ts', style: './index.scss', path: '/site-starter' },
-        { name: 'about', template: './about/index.html', module: './about/index.ts', style: './about/index.scss', path: '/site-starter/about/' },
+        { name: 'about', template: './about/index.html', module: './about/index.ts', style: './about/index.scss', path: '/site-starter/about' },
     ],
     /**
      *  Files or directories to copy from src to the build directory
