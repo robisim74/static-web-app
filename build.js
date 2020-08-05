@@ -43,7 +43,7 @@ async function build() {
         });
     }
 
-    // Run sitemap.js
+    // Run sitemap
     // https://github.com/ekalinin/sitemap.js
     log(chalk.blue('Generate sitemap'));
     const sitemap = new SitemapStream({

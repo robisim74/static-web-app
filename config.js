@@ -4,7 +4,7 @@
 const config = {
     buildDir: 'build',
     /**
-     * Entry points
+     * Entry points as in src folder
      */
     entries: [
         { name: 'home', template: './index.html', module: './index.ts', style: './index.scss', path: '/' },

@@ -17,7 +17,7 @@ module.exports = {
                 '@babel/plugin-syntax-dynamic-import'
             ]
         },
-        // Config to generate bundles for legacy browsers
+        // Config to generate bundles for legacy browsers as in .browserslistrc
         legacy: {
             presets: [
                 [
