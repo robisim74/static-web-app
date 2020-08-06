@@ -1,6 +1,6 @@
 {
   "name": "site-starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",

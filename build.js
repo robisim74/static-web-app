@@ -47,14 +47,19 @@ async function build() {
     // https://github.com/ekalinin/sitemap.js
     log(chalk.blue('Generate sitemap'));
     const sitemap = new SitemapStream({
-        hostname: config.hostname
+        hostname: config.hostname,
+        lastmodDateOnly: true, // Print date not time
     });
 
     const writeStream = createWriteStream(`${config.buildDir}/sitemap.xml`);
     sitemap.pipe(writeStream);
 
     for (const path of getPaths(config.entries)) {
-        sitemap.write(path);
+        sitemap.write({
+            url: path,
+            lastmod: Date.now(),
+            // Other options
+        });
     }
 
     sitemap.end();

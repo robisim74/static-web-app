@@ -49,7 +49,7 @@ const getHtmlSourceFiles = (entries) => {
 };
 
 const getPaths = (entries) => {
-    return entries.map(value =>
+    return entries.filter(value => value.path != undefined).map(value =>
         value.path
     );
 };
