@@ -1,12 +1,12 @@
 {
   "name": "site-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "build": "node build.js",
-    "test": "cypress open",
-    "test:ci": "cypress run"
+    "test": "concurrently \"webpack-dev-server --config webpack.config.dev.js\" \"cypress open\"",
+    "test:ci": "concurrently \"webpack-dev-server --config webpack.config.dev.js\" \"cypress run\""
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "babel-loader": "^8.1.0",
     "chalk": "^4.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.3.0",
     "copy-webpack-plugin": "^6.0.3",
     "critical": "^2.0.1",
     "css-loader": "^3.6.0",

@@ -40,7 +40,6 @@ npm start
 ```
 
 ### Test
-Open another terminal while _DevServer_ is running:
 
 ```Shell
 npm test
