@@ -13,6 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, config.buildDir),
         filename: 'js/[name].js',
+        publicPath: '/'
     },
     optimization: {
         noEmitOnErrors: true
@@ -64,7 +65,31 @@ module.exports = {
                     'css-loader?sourceMap=true',
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name].[ext]',
+                            outputPath: 'assets',
+                            emitFile: false
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.woff$|\.woff2$|\.ttf$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[ext]',
+                        outputPath: 'assets',
+                        emitFile: false
+                    }
+                }
+            },
         ]
     },
     stats: 'minimal'

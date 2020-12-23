@@ -30,7 +30,8 @@ const modernConfig = {
     output: {
         path: path.resolve(__dirname, config.buildDir),
         filename: `js/${MODERN_FILENAME}.js`,
-        chunkFilename: `js/${MODERN_FILENAME}.js`
+        chunkFilename: `js/${MODERN_FILENAME}.js`,
+        publicPath: '/'
     },
     optimization: {
         noEmitOnErrors: true,
@@ -81,7 +82,31 @@ const modernConfig = {
                     },
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name].[ext]',
+                            outputPath: 'assets',
+                            emitFile: false
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.woff$|\.woff2$|\.ttf$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[ext]',
+                        outputPath: 'assets',
+                        emitFile: false
+                    }
+                }
+            },
         ]
     },
     stats: {
@@ -98,7 +123,8 @@ const legacyConfig = {
     output: {
         path: path.resolve(__dirname, config.buildDir),
         filename: `js/${LEGACY_FILENAME}.js`,
-        chunkFilename: `js/${LEGACY_FILENAME}.js`
+        chunkFilename: `js/${LEGACY_FILENAME}.js`,
+        publicPath: '/'
     },
     optimization: {
         noEmitOnErrors: true,
