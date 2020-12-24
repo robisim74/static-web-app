@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, config.buildDir),
         filename: 'js/[name].js',
-        publicPath: '/'
+        publicPath: ''
     },
     optimization: {
         noEmitOnErrors: true
