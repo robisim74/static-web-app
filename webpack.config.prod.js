@@ -31,7 +31,7 @@ const modernConfig = {
         path: path.resolve(__dirname, config.buildDir),
         filename: `js/${MODERN_FILENAME}.js`,
         chunkFilename: `js/${MODERN_FILENAME}.js`,
-        publicPath: ''
+        publicPath: './'
     },
     optimization: {
         noEmitOnErrors: true,
@@ -124,7 +124,7 @@ const legacyConfig = {
         path: path.resolve(__dirname, config.buildDir),
         filename: `js/${LEGACY_FILENAME}.js`,
         chunkFilename: `js/${LEGACY_FILENAME}.js`,
-        publicPath: ''
+        publicPath: './'
     },
     optimization: {
         noEmitOnErrors: true,
