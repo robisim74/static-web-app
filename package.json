@@ -1,6 +1,6 @@
 {
   "name": "site-starter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-typescript": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@types/node": "^14.0.23",

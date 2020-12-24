@@ -10,10 +10,11 @@ module.exports = {
                             esmodules: true
                         }
                     },
-                    '@babel/typescript'
+                    '@babel/preset-typescript'
                 ]
             ],
             plugins: [
+                '@babel/plugin-transform-typescript',
                 '@babel/plugin-syntax-dynamic-import'
             ]
         },
@@ -26,10 +27,11 @@ module.exports = {
                         useBuiltIns: 'usage',
                         corejs: '3.0.0'
                     },
-                    '@babel/typescript'
+                    '@babel/preset-typescript'
                 ]
             ],
             plugins: [
+                '@babel/plugin-transform-typescript',
                 '@babel/plugin-syntax-dynamic-import'
             ]
         },
