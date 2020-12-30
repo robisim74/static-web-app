@@ -1,3 +1,8 @@
+import '@webcomponents/webcomponentsjs';
+
+/* Components */
+import './components/site-header';
+
 console.log('site-starter: ' + process.env.NODE_ENV);
 
 /* Example of es6 code that will need polyfills in the legacy build */

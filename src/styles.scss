@@ -1,4 +1,4 @@
-$dark-color: #152028;
+$dark-color: #121212;
 
 body {
     color: $dark-color;
@@ -6,7 +6,7 @@ body {
     font-family: sans-serif;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 769px) {
     body {
         color: #ffffff;
         background-color: $dark-color;
