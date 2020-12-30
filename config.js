@@ -11,7 +11,7 @@ const config = {
         { name: 'about', template: './about/index.html', module: './about/index.ts', style: './about/index.scss', path: '/site-starter/about' },
     ],
     /**
-     *  Files or directories to copy from src to the build directory
+     * Files or directories to copy from src to the build directory
      */
     assets: [
         'assets',
@@ -26,6 +26,5 @@ const config = {
      */
     hostname: 'https://robisim74.github.io'
 };
-
 
 module.exports = config;

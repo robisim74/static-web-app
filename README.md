@@ -34,13 +34,11 @@ npm install
 ```
 
 ### Start DevServer
-
 ```Shell
 npm start
 ```
 
 ### Test
-
 ```Shell
 npm test
 ```

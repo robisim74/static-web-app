@@ -84,7 +84,7 @@ const modernConfig = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|svg|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -145,7 +145,7 @@ const legacyConfig = {
                 }
             ],
             defaultAttribute: 'defer'
-        }),
+        })
     ],
     module: {
         rules: [
@@ -158,7 +158,20 @@ const legacyConfig = {
                         envName: 'legacy' // Points to env.legacy in babel.config.js
                     }
                 }
-            }
+            },
+            {
+                test: /\.s?css/i,
+                use: [
+                    {
+                        loader: 'css-loader',
+                        options: { importLoaders: 1 } // @import syntax
+                    },
+                    {
+                        loader: 'postcss-loader' // Autoprefixer
+                    },
+                    'sass-loader'
+                ]
+            },
         ]
     },
     stats: {

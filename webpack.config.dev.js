@@ -45,6 +45,7 @@ module.exports = {
             },
             {
                 test: /\.(js|ts)$/,
+                exclude: /node_modules/,
                 enforce: 'pre',
                 use: ['source-map-loader'],
             },
@@ -67,7 +68,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|svg|jpe?g|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
