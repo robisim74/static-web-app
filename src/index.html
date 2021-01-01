@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <div class="no-select">
-        <site-header></site-header>
+    <div>
+        <site-header>
+            <%= require('html-loader!./components/site-header.html') %>
+        </site-header>
         <a href="about">About</a>
     </div>
 </body>

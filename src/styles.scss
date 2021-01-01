@@ -12,3 +12,14 @@ body {
         background-color: $dark-color;
     }
 }
+
+a:link,
+a:visited {
+    color: #5d99c6;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #90caf9;
+}

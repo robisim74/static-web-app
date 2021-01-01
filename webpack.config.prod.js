@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -43,6 +44,9 @@ const modernConfig = {
         extensions: ['.ts', '.js'],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            envName: JSON.stringify('modern')
+        }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
@@ -136,6 +140,9 @@ const legacyConfig = {
         extensions: ['.ts', '.js'],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            envName: JSON.stringify('legacy')
+        }),
         ...MultipleLegacyHtmlWebpackPlugin(config.entries),
         new ScriptExtHtmlWebpackPlugin({
             custom: [

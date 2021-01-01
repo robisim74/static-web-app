@@ -18,6 +18,14 @@ const config = {
         '404.html'
     ],
     /**
+     * Polyfills for legacy build
+     */
+    polyfills: [
+        'core-js/modules/es.promise',
+        'core-js/modules/es.array.iterator',
+        '@webcomponents/webcomponentsjs'
+    ],
+    /**
      * Production base href
      */
     baseHref: 'https://robisim74.github.io/site-starter/',

@@ -15,7 +15,7 @@ const getModernEntry = (entries) => {
 const getLegacyEntry = (entries) => {
     const entry = {};
     for (const value of entries) {
-        entry[value.name] = value.module;
+        entry[value.name] = [...config.polyfills, value.module];
     }
     return entry;
 };

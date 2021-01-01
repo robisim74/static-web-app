@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -25,6 +26,9 @@ module.exports = {
         hot: true
     },
     plugins: [
+        new webpack.DefinePlugin({
+            envName: JSON.stringify('modern')
+        }),
         new CopyWebpackPlugin({
             patterns: [
                 ...getAssets(config.assets)
