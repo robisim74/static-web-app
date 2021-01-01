@@ -97,5 +97,9 @@ module.exports = {
             },
         ]
     },
-    stats: 'minimal'
+    stats: {
+        colors: true,
+        modules: false,
+        entrypoints: false
+    }
 };

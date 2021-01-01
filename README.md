@@ -1,18 +1,19 @@
 # Site starter
 ![Node.js CI](https://github.com/robisim74/site-starter/workflows/Node.js%20CI/badge.svg)
-> Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading. SEO & performance friendly
+> Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components. SEO & performance friendly
 
 [Live example]( https://robisim74.github.io/site-starter/)
 
 ## Features
 
 * _Babel_ & _webpack_
-* ES6 & _TypeScript_
+* _TypeScript_ & ES6
 * CSS, _SASS_ & _Autoprefixer_
 * _ESLint_
 * Critical CSS
 * Differential loading
 * One page or Multi page
+* Web Components
 * Sitemap
 * End-to-end testing with _Cypress_
 

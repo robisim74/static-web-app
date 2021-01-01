@@ -1,25 +1,13 @@
-$dark-color: #121212;
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/assets/fonts/Lato-Regular.ttf') format('woff');
+    font-display: swap;
+}
 
 body {
-    color: $dark-color;
-    background-color: #ffffff;
-    font-family: sans-serif;
-}
-
-@media (min-width: 769px) {
-    body {
-        color: #ffffff;
-        background-color: $dark-color;
-    }
-}
-
-a:link,
-a:visited {
-    color: #5d99c6;
-    text-decoration: none;
-}
-
-a:hover,
-a:active {
-    color: #90caf9;
+    color: #ffffff;
+    background-color: #121212;
+    font-family: 'Lato', sans-serif;
 }

@@ -1,1 +1,2 @@
-console.log('about');
+/* Web Components */
+import '../components/nav-menu';

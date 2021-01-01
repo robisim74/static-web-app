@@ -1,7 +1,7 @@
 {
   "name": "site-starter",
   "version": "0.4.0",
-  "description": "Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading",
+  "description": "Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "build": "node build.js",
@@ -24,6 +24,7 @@
     "critical css",
     "differential loading",
     "multi page",
+    "web components",
     "site",
     "starter"
   ],

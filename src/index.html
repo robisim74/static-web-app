@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Site starter</title>
     <meta name="description"
-        content="Build a site with Webpack, Babel, ES6 or TypeScript, critical CSS & differential loading">
+        content="Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components">
 </head>
 
 <body>
-    <div>
-        <site-header>
-            <%= require('html-loader!./components/site-header.html') %>
-        </site-header>
-        <a href="about">About</a>
-    </div>
+    <header>
+        <h1>Site starter</h1>
+        <p>Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components. SEO & performance
+            friendly</p>
+    </header>
+    <nav-menu>
+        <%= require('html-loader!./components/nav-menu.html') %>
+    </nav-menu>
 </body>
 
 </html>

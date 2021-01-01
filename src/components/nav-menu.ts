@@ -1,11 +1,11 @@
 /* Styles */
-import './site-header.scss';
+import './nav-menu.scss';
 
 /* Template */
 /* If you import the template here instead of html, it will not be rendered during the build process */
-import template from 'html-loader!./site-header.html';
+import template from 'html-loader!./nav-menu.html';
 
-export class SiteHeader extends HTMLElement {
+class NavMenuComponent extends HTMLElement {
     constructor() {
         super();
     }
@@ -13,8 +13,8 @@ export class SiteHeader extends HTMLElement {
     connectedCallback() {
         //this.innerHTML = template;
 
-        console.log('site-starter: init site-header component');
+        console.log('site-starter: init nav-menu component');
     }
 }
 
-customElements.define("site-header", SiteHeader);
+customElements.define('nav-menu', NavMenuComponent);

@@ -7,8 +7,8 @@ describe('Styles', () => {
 
     it('home colours', () => {
         cy.get('body')
-            .should('have.css', 'background-color', 'rgb(21, 32, 40)')
-        cy.get('.no-select')
-            .should('have.css', 'user-select', 'none')
+            .should('have.css', 'background-color', 'rgb(18, 18, 18)')
+        cy.get('.nav-menu a:link')
+            .should('have.css', 'color', 'rgb(93, 153, 198)')
     })
 })
