@@ -6,6 +6,7 @@ import './nav-menu.scss';
 import template from 'html-loader!./nav-menu.html';
 
 class NavMenuComponent extends HTMLElement {
+
     constructor() {
         super();
     }

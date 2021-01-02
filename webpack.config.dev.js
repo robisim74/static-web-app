@@ -101,5 +101,8 @@ module.exports = {
         colors: true,
         modules: false,
         entrypoints: false
+    },
+    performance: {
+        hints: false
     }
 };
