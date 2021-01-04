@@ -49,7 +49,7 @@ npm test
 npm run build
 ```
 
-![build](https://user-images.githubusercontent.com/14012361/103519315-9d2c5300-4e75-11eb-8330-6b91c9493278.png)
+![build](https://user-images.githubusercontent.com/14012361/103531475-b17a4b00-4e89-11eb-99d1-6679d08bde4c.png)
 
 
 ## <a name="2"></a>Project structure
