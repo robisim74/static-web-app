@@ -68,6 +68,7 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader?sourceMap=true',
+                    'resolve-url-loader',
                     'sass-loader'
                 ]
             },
@@ -77,9 +78,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name].[ext]',
-                            outputPath: 'assets',
-                            emitFile: false
+                            name: '[path][name].[ext]'
                         }
                     }
                 ]
@@ -89,9 +88,7 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: 'fonts/[name].[ext]',
-                        outputPath: 'assets',
-                        emitFile: false
+                        name: '[path][name].[ext]'
                     }
                 }
             },
@@ -101,8 +98,5 @@ module.exports = {
         colors: true,
         modules: false,
         entrypoints: false
-    },
-    performance: {
-        hints: false
     }
 };

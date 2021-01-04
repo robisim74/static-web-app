@@ -79,12 +79,19 @@ const modernConfig = {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: { importLoaders: 1 } // @import syntax
+                        options: { sourceMap: true }
                     },
                     {
                         loader: 'postcss-loader' // Autoprefixer
                     },
-                    'sass-loader'
+                    {
+                        loader: "resolve-url-loader",
+                        options: { sourceMap: true } // source-maps required for loaders preceding resolve-url-loader
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: { sourceMap: true }
+                    }
                 ]
             },
             {
@@ -93,9 +100,8 @@ const modernConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name].[ext]',
-                            outputPath: 'assets',
-                            emitFile: false
+                            name: '[path][name].[ext]',
+                            publicPath: '../'
                         }
                     }
                 ]
@@ -105,9 +111,8 @@ const modernConfig = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: 'fonts/[name].[ext]',
-                        outputPath: 'assets',
-                        emitFile: false
+                        name: '[path][name].[ext]',
+                        publicPath: '../'
                     }
                 }
             },
@@ -169,15 +174,28 @@ const legacyConfig = {
             {
                 test: /\.s?css/i,
                 use: [
-                    {
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 } // @import syntax
-                    },
-                    {
-                        loader: 'postcss-loader' // Autoprefixer
-                    },
-                    'sass-loader'
+                    'css-loader'
                 ]
+            },
+            {
+                test: /\.(png|svg|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            emitFile: false
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.woff$|\.woff2$|\.ttf$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        emitFile: false
+                    }
+                }
             },
         ]
     },
@@ -185,6 +203,9 @@ const legacyConfig = {
         colors: true,
         modules: false,
         entrypoints: false
+    },
+    performance: {
+        hints: false
     }
 };
 
