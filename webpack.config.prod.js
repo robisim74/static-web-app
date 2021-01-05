@@ -98,8 +98,11 @@ const modernConfig = {
                 test: /\.(png|svg|jpe?g|gif)$/i,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: 'url-loader',
                         options: {
+                            limit: 10000,
+                            // Fallback
+                            fallback: require.resolve('file-loader'),
                             name: '[path][name].[ext]',
                             publicPath: '../'
                         }
@@ -108,13 +111,18 @@ const modernConfig = {
             },
             {
                 test: /\.woff$|\.woff2$|\.ttf$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[path][name].[ext]',
-                        publicPath: '../'
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            // Fallback
+                            fallback: require.resolve('file-loader'),
+                            name: '[path][name].[ext]',
+                            publicPath: '../'
+                        }
                     }
-                }
+                ]
             },
         ]
     },
@@ -122,6 +130,9 @@ const modernConfig = {
         colors: true,
         modules: false,
         entrypoints: false
+    },
+    performance: {
+        hints: false
     }
 };
 
@@ -179,14 +190,12 @@ const legacyConfig = {
             },
             {
                 test: /\.(png|svg|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            emitFile: false
-                        }
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        emitFile: false
                     }
-                ]
+                }
             },
             {
                 test: /\.woff$|\.woff2$|\.ttf$/,

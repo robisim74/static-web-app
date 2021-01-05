@@ -74,14 +74,12 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[path][name].[ext]'
-                        }
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]'
                     }
-                ]
+                }
             },
             {
                 test: /\.woff$|\.woff2$|\.ttf$/,

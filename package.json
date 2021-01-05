@@ -1,6 +1,6 @@
 {
   "name": "site-starter",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
@@ -63,6 +63,7 @@
     "source-map-loader": "^1.0.1",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.7",
+    "url-loader": "^4.1.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
