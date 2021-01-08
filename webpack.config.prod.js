@@ -110,7 +110,7 @@ const modernConfig = {
                 ]
             },
             {
-                test: /\.woff$|\.woff2$|\.ttf$/,
+                test: /\.eot$|\.woff$|\.woff2$|\.ttf$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -174,7 +174,12 @@ const legacyConfig = {
         rules: [
             {
                 test: /\.(js|ts)$/,
-                exclude: /node_modules/,
+                exclude: {
+                    test: /node_modules/,
+                    not: [
+                        // Libraries that needs to be transpiled because they use modern syntax
+                    ]
+                },
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -198,7 +203,7 @@ const legacyConfig = {
                 }
             },
             {
-                test: /\.woff$|\.woff2$|\.ttf$/,
+                test: /\.eot$|\.woff$|\.woff2$|\.ttf$/,
                 use: {
                     loader: 'file-loader',
                     options: {
