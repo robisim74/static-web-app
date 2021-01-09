@@ -49,7 +49,7 @@ module.exports = {
             },
             {
                 test: /\.(js|ts)$/,
-                exclude: /node_modules/,
+                include: path.resolve(__dirname, 'src'),
                 enforce: 'pre',
                 use: ['source-map-loader'],
             },
