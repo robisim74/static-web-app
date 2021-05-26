@@ -27,7 +27,8 @@ const MultipleModernHtmlWebpackPlugin = (entries, baseHref = '/') => {
             template: path.resolve(__dirname, `../src/${value.template}`),
             chunks: [value.name],
             favicon: path.resolve(__dirname, '../src/favicon.ico'),
-            base: baseHref
+            base: baseHref,
+            minify: false
         })
     );
 };
@@ -37,7 +38,8 @@ const MultipleLegacyHtmlWebpackPlugin = (entries) => {
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, `../${config.buildDir}/${value.template}`),
             template: path.resolve(__dirname, `../${config.buildDir}/${value.template}`), // Points to outDir
-            chunks: [value.name]
+            chunks: [value.name],
+            minify: false
         })
     );
 };
