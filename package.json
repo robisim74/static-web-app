@@ -1,7 +1,7 @@
 {
-  "name": "site-starter",
+  "name": "static-web-app",
   "version": "0.6.0",
-  "description": "Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components",
+  "description": "Build a static web app with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.dev.js",
     "build": "node build.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robisim74/site-starter"
+    "url": "https://github.com/robisim74/static-web-app"
   },
   "bugs": {
-    "url": "https://github.com/robisim74/site-starter/issues"
+    "url": "https://github.com/robisim74/static-web-app/issues"
   },
-  "homepage": "https://github.com/robisim74/site-starter",
+  "homepage": "https://github.com/robisim74/static-web-app",
   "keywords": [
     "webpack",
     "babel",
@@ -24,9 +24,7 @@
     "critical css",
     "differential loading",
     "multi page",
-    "web components",
-    "site",
-    "starter"
+    "web components"
   ],
   "author": "Roberto Simonetti",
   "license": "MIT",

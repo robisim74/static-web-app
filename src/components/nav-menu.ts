@@ -14,7 +14,7 @@ class NavMenuComponent extends HTMLElement {
     connectedCallback() {
         //this.innerHTML = template;
 
-        console.log('site-starter: init nav-menu component');
+        console.log('static-web-app: init nav-menu component');
     }
 }
 

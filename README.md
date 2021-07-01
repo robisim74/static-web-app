@@ -1,8 +1,8 @@
-# Site starter
-![Node.js CI](https://github.com/robisim74/site-starter/workflows/Node.js%20CI/badge.svg)
-> Build a site with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components. SEO & performance friendly
+# Static Web App
+![Node.js CI](https://github.com/robisim74/static-web-app/workflows/Node.js%20CI/badge.svg)
+> Build a static web app with Webpack, Babel, TypeScript or ES6, critical CSS, differential loading & Web Components. SEO & performance friendly
 
-[Live example]( https://robisim74.github.io/site-starter/)
+[Live example]( https://robisim74.github.io/static-web-app/)
 
 ## Features
 
@@ -55,7 +55,7 @@ npm run build
 ## <a name="2"></a>Project structure
 - Site
     - **src/** source code folder
-    - **config.js** site configuration
+    - **config.js** app configuration
     
 - Scripts & configuration files
     - **build.js** building process
@@ -79,7 +79,7 @@ npm run build
     - **cypress.json** _Cypress_ configuration file
 
 ## <a name="3"></a>What's new
-You can find template changes [here](https://github.com/robisim74/site-starter/releases).
+You can find template changes [here](https://github.com/robisim74/static-web-app/releases).
 
 
 ## License
