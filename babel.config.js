@@ -9,13 +9,11 @@ module.exports = {
                         targets: {
                             esmodules: true
                         }
-                    },
-                    '@babel/preset-typescript'
-                ]
+                    }
+                ],
+                '@babel/preset-typescript'
             ],
             plugins: [
-                '@babel/plugin-transform-typescript',
-                '@babel/plugin-syntax-dynamic-import'
             ]
         },
         // Config to generate bundles for legacy browsers as in .browserslistrc
@@ -26,9 +24,9 @@ module.exports = {
                     {
                         useBuiltIns: 'usage',
                         corejs: '3.8'
-                    },
-                    '@babel/preset-typescript'
-                ]
+                    }
+                ],
+                '@babel/preset-typescript'
             ],
             plugins: [
                 '@babel/plugin-transform-typescript',
